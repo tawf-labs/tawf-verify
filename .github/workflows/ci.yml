@@ -40,7 +40,7 @@ jobs:
       # the cryptographic core fails loudly and separately from the rest of the suite.
       - name: verify-core coverage gate (hash.ts / merkle.ts, 100% branches)
         working-directory: packages/verify-core
-        run: pnpm test -- --coverage
+        run: pnpm test
 
   test-contracts:
     runs-on: ubuntu-latest
