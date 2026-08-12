@@ -1,4 +1,4 @@
-/** prd.md Section 12.1 — the three verdicts a donor can see, and nothing else; the mismatch
+/** prd.md Section 12.1 - the three verdicts a donor can see, and nothing else; the mismatch
  * copy must stay blunt, never softened, per that section's explicit instruction. */
 export type VerifyUIStatus = "loading" | "verified" | "pending" | "mismatch" | "error";
 
@@ -9,7 +9,7 @@ export interface VerifyUIResult {
   batchId?: number;
   txHash?: string;
   explorerUrl?: string;
-  /** Present when status is "pending" — prd.md's copy: "anchoring within [n] minutes." */
+  /** Present when status is "pending" - prd.md's copy: "anchoring within [n] minutes." */
   expectedAnchorMinutes?: number;
 }
 

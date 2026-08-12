@@ -26,7 +26,7 @@ until proven otherwise:
 - Every change must keep the golden vectors in `packages/verify-core/test/vectors/` passing
   unmodified. If a vector must change, that's a schema version bump (`schemaId`), not a patch.
 - `hash.ts` and `merkle.ts` are held to 100% branch coverage in CI. This is a release
-  blocker, not a suggestion — see `prd.md` Section 15.
+  blocker, not a suggestion - see `prd.md` Section 15.
 - If you touch the Merkle pairing/domain-separation rule, you must also update
   `contracts/src/TawfVerifyRegistry.sol`'s `verify()` function and its parity test. The two
   implementations must treat identical input identically, in perpetuity.
@@ -34,4 +34,4 @@ until proven otherwise:
 ## Commit style
 
 Small, reviewable commits. Explain *why* in the body when the change isn't self-evident from
-the diff — especially for anything in `verify-core` or the contract.
+the diff - especially for anything in `verify-core` or the contract.

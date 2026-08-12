@@ -19,7 +19,7 @@ function config() {
 /**
  * One in-memory TawfVerify instance per Node process. This is the concrete manifestation of
  * the in-memory-outbox limitation documented in this app's README and in
- * @tawf/verify-server's README — it does not survive a restart and does not work across
+ * @tawf/verify-server's README - it does not survive a restart and does not work across
  * multiple server instances. Replace with a real datastore before production.
  */
 export function getTawf(): TawfVerify {

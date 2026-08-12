@@ -4,7 +4,7 @@ import type { ProofBundle } from "@tawf/verify-core";
 /**
  * Fully real, and deliberately public + unauthenticated (prd.md Section 11.2: "verification
  * must never require an account"). Takes a submitted ProofBundle and recomputes its leaf and
- * Merkle path via @tawf/verify-core — never trusts anything the caller sent except the
+ * Merkle path via @tawf/verify-core - never trusts anything the caller sent except the
  * record and the proof path itself, per Appendix B.
  */
 export async function POST(request: Request): Promise<Response> {

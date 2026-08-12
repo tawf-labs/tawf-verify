@@ -1,7 +1,7 @@
 {
   "name": "@tawf/verify-react",
   "version": "0.1.0",
-  "description": "Drop-in UI: VerifyBadge, VerifyPanel, TransparencyBoard. Stub — real component structure, canned-fixture data fetching.",
+  "description": "Drop-in UI: VerifyBadge, VerifyPanel, TransparencyBoard. Stub - real component structure, canned-fixture data fetching.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

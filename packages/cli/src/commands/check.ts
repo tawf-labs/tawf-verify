@@ -26,15 +26,15 @@ export async function runCheck(args: { file: string; rpc?: string }): Promise<Ch
     case "valid":
       return {
         exitCode: 0,
-        message: `VERIFIED — anchored on chain at ${result.anchoredAt.toISOString()}`,
+        message: `VERIFIED - anchored on chain at ${result.anchoredAt.toISOString()}`,
       };
     case "structurally_valid_unconfirmed":
       return {
         exitCode: 0,
         message:
-          "STRUCTURALLY VALID (unconfirmed) — leaf and Merkle path check out; pass --rpc to confirm the root on chain",
+          "STRUCTURALLY VALID (unconfirmed) - leaf and Merkle path check out; pass --rpc to confirm the root on chain",
       };
     case "invalid":
-      return { exitCode: 1, message: `MISMATCH — ${result.reasons.join(", ")}` };
+      return { exitCode: 1, message: `MISMATCH - ${result.reasons.join(", ")}` };
   }
 }

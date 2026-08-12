@@ -17,7 +17,7 @@ export interface AnchorClient {
  * viem WalletClient from a private key or a hosted-mode remote signer, calls
  * `TawfVerifyRegistry.anchorBatch(orgIdHash, root, leafCount, seqStart, uri)`, waits for the
  * receipt, and returns the real chainId/registry/batchId/txHash/blockNumber/blockTimestamp
- * from that receipt instead of the deterministic placeholders below. Wire that in here —
+ * from that receipt instead of the deterministic placeholders below. Wire that in here -
  * nowhere else needs to change, since server.ts only depends on the AnchorClient interface.
  */
 export function createMockAnchorClient(config: TawfVerifyConfig): AnchorClient {

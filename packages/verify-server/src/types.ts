@@ -2,7 +2,7 @@ import type { AnchorInfo, Hex, JSONValue, ProofBundle, RecordType } from "@tawf/
 
 export interface TawfVerifyConfig {
   orgId: string;
-  /** 32-byte org salt. Never rotated without a migration — see prd.md Section 15. */
+  /** 32-byte org salt. Never rotated without a migration - see prd.md Section 15. */
   orgSalt: Hex;
   mode?: "hosted" | "self";
   /** hosted mode */
@@ -14,7 +14,7 @@ export interface TawfVerifyConfig {
   batch?: { maxRecords?: number; maxDelayMs?: number };
 }
 
-/** prd.md Section 11.1 — the shape passed to `tawf.record()`. `donorInternalId` is hashed
+/** prd.md Section 11.1 - the shape passed to `tawf.record()`. `donorInternalId` is hashed
  * with orgSalt inside the SDK and never transmitted or stored raw. */
 export interface RecordInput {
   type: RecordType;
@@ -64,5 +64,5 @@ export interface OutboxEntry {
   proof?: ProofBundle;
 }
 
-/** What a real anchorClient submits to TawfVerifyRegistry.anchorBatch — see anchorClient.ts. */
+/** What a real anchorClient submits to TawfVerifyRegistry.anchorBatch - see anchorClient.ts. */
 export type SubmittedAnchor = AnchorInfo;

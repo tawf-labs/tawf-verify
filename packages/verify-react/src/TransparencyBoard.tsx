@@ -8,7 +8,7 @@ export interface TransparencyBoardProps {
 }
 
 /**
- * prd.md Section 12.2 — the direct analogue of Proof of Coffee's `/blockchain` page, but
+ * prd.md Section 12.2 - the direct analogue of Proof of Coffee's `/blockchain` page, but
  * built around a fingerprint registry rather than a token vault. The closing paragraph is not
  * optional decoration: Section 9's stated limitation ("a commitment proves a record existed;
  * it does not prove the operator anchored *every* record") must ship with this component
@@ -64,7 +64,7 @@ export function TransparencyBoard({ orgId, apiBaseUrl, fetcher }: TransparencyBo
 
       <p>
         A commitment proves a record existed at the time it was anchored. It does not prove every
-        record was anchored — a gap in the sequence above would be visible, but its absence is not,
+        record was anchored - a gap in the sequence above would be visible, but its absence is not,
         by itself, a completeness guarantee. See the full explanation in this organization&apos;s
         published documentation.
       </p>

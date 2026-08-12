@@ -2,15 +2,15 @@ import { InvalidRecordError } from "./errors.js";
 import type { JSONValue } from "./types.js";
 
 /**
- * RFC 8785 JSON Canonicalization Scheme (JCS) — prd.md Section 8.3, "the single most
+ * RFC 8785 JSON Canonicalization Scheme (JCS) - prd.md Section 8.3, "the single most
  * important interoperability decision in the spec."
  *
  * Implemented in-house rather than via a third-party JCS package: the only two things JCS
  * adds on top of plain JSON are (a) recursive key sorting and (b) fail-closed rejection of
  * values plain JSON.stringify would silently mangle (NaN, Infinity, undefined). Primitive
  * number/string serialization is delegated to JSON.stringify itself, since V8/Node's
- * serialization of individual primitives is already ECMA-262-conformant — which is exactly
- * what JCS requires — so there is no double-to-string algorithm to get subtly wrong here.
+ * serialization of individual primitives is already ECMA-262-conformant - which is exactly
+ * what JCS requires - so there is no double-to-string algorithm to get subtly wrong here.
  */
 export function canonicalize(value: JSONValue): string {
   return serialize(value);
@@ -39,7 +39,7 @@ function serialize(value: JSONValue): string {
   }
   if (typeof value === "object") {
     // JS's default string sort is UTF-16 code-unit order, which is exactly RFC 8785's
-    // required key order — no locale-aware comparator needed.
+    // required key order - no locale-aware comparator needed.
     const keys = Object.keys(value).sort();
     const entries = keys.map(
       (key) =>

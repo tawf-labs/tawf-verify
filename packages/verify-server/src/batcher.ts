@@ -9,7 +9,7 @@ export interface PreparedBatch {
 }
 
 /** Builds a Merkle tree over a set of pending canonical records. Real logic from
- * @tawf/verify-core — nothing mocked here, only anchorClient.ts (submission) is a stub. */
+ * @tawf/verify-core - nothing mocked here, only anchorClient.ts (submission) is a stub. */
 export function prepareBatch(records: CanonicalRecord[], orgSalt: Hex): PreparedBatch {
   if (records.length === 0) {
     throw new EmptyOutboxError();

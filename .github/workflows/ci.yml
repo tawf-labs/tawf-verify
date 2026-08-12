@@ -36,7 +36,7 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       # verify-core's hash.ts/merkle.ts are held to 100% branch coverage as a release
-      # blocker (prd.md Section 15) — run it as its own step so a coverage regression in
+      # blocker (prd.md Section 15) - run it as its own step so a coverage regression in
       # the cryptographic core fails loudly and separately from the rest of the suite.
       - name: verify-core coverage gate (hash.ts / merkle.ts, 100% branches)
         working-directory: packages/verify-core

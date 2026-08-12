@@ -3,10 +3,10 @@ export type Hex = `0x${string}`;
 export type JSONPrimitive = string | number | boolean | null;
 export type JSONValue = JSONPrimitive | JSONValue[] | { [key: string]: JSONValue };
 
-/** prd.md Section 8.1 — deliberately small and closed in v1. */
+/** prd.md Section 8.1 - deliberately small and closed in v1. */
 export type RecordType = "donation" | "disbursement" | "allocation" | "expense" | "attestation";
 
-/** prd.md Section 8.2 — canonical record, the input to the SDK. */
+/** prd.md Section 8.2 - canonical record, the input to the SDK. */
 export interface CanonicalRecord {
   schema: "tawf.verify.record.v1";
   type: RecordType;
@@ -25,7 +25,7 @@ export interface CanonicalRecord {
   meta?: Record<string, JSONValue>;
 }
 
-/** prd.md Section 8.4 — the 5-tuple that gets abi.encode'd and keccak256'd into a leaf. */
+/** prd.md Section 8.4 - the 5-tuple that gets abi.encode'd and keccak256'd into a leaf. */
 export interface LeafInputs {
   schemaId: Hex;
   orgIdHash: Hex;
@@ -35,7 +35,7 @@ export interface LeafInputs {
 }
 
 /** One step of a Merkle inclusion proof: the sibling to combine with at that level.
- * A level where this node was promoted unchanged (odd node, no pair) contributes no step —
+ * A level where this node was promoted unchanged (odd node, no pair) contributes no step -
  * see merkle.ts. */
 export type ProofStep = Hex;
 
@@ -45,7 +45,7 @@ export interface MerkleTree {
   levels: Hex[][];
 }
 
-/** prd.md Section 8.6 — what the donor receives. */
+/** prd.md Section 8.6 - what the donor receives. */
 export interface AnchorInfo {
   chainId: number;
   registry: Hex;
@@ -59,7 +59,7 @@ export interface ProofBundle {
   schema: "tawf.verify.proof.v1";
   record: CanonicalRecord;
   /**
-   * keccak256(orgSalt || recordId) — prd.md Section 8.4. A public verifier never holds
+   * keccak256(orgSalt || recordId) - prd.md Section 8.4. A public verifier never holds
    * orgSalt, so this cannot be re-derived from `record` alone; it must travel with the
    * bundle. This is safe to disclose to whoever already holds the bundle for this specific
    * record (the salt's job is to stop an outsider from computing it for a *guessed*
@@ -72,7 +72,7 @@ export interface ProofBundle {
   anchor: AnchorInfo;
 }
 
-/** What TawfVerifyRegistry.batches(batchId) returns on chain — see contracts/src/TawfVerifyRegistry.sol. */
+/** What TawfVerifyRegistry.batches(batchId) returns on chain - see contracts/src/TawfVerifyRegistry.sol. */
 export interface OnChainBatch {
   root: Hex;
   orgIdHash: Hex;
@@ -89,7 +89,7 @@ export type VerifyResult =
   | { status: "structurally_valid_unconfirmed" }
   | { status: "invalid"; reasons: string[] };
 
-/** prd.md Section 9 — field-level redaction commitments. */
+/** prd.md Section 9 - field-level redaction commitments. */
 export interface FieldCommitment {
   __redacted: true;
   commitment: Hex;

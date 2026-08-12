@@ -1,6 +1,6 @@
 export class NotAnchoredYetError extends Error {
   constructor(recordId: string) {
-    super(`NotAnchoredYetError: record "${recordId}" is still pending — no proof exists yet`);
+    super(`NotAnchoredYetError: record "${recordId}" is still pending - no proof exists yet`);
     this.name = "NotAnchoredYetError";
   }
 }

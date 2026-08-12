@@ -10,7 +10,7 @@ export interface PreparedLeaf {
 
 /**
  * Turns a batch of canonical records into leaf hashes ready for `buildMerkleTree`, in the
- * same order as the input (leaf index == array index — batchers must keep this ordering
+ * same order as the input (leaf index == array index - batchers must keep this ordering
  * consistent, since it's what `generateProof` indexes into).
  */
 export function prepareLeaves(records: CanonicalRecord[], orgSalt: Hex): PreparedLeaf[] {

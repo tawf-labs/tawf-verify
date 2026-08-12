@@ -2,7 +2,7 @@
   "name": "@tawf/verify-service",
   "version": "0.1.0",
   "private": true,
-  "description": "Hosted anchoring relayer + public verify page (prd.md Section 6.5 / 12). Stub — see README.",
+  "description": "Hosted anchoring relayer + public verify page (prd.md Section 6.5 / 12). Stub - see README.",
   "type": "module",
   "scripts": {
     "dev": "next dev",

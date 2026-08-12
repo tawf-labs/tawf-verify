@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useVerify } from "./useVerify.js";
 import type { UseVerifyOptions } from "./types.js";
 
-/** prd.md Section 12.1 — copy must be blunt, not reassuring, especially for "mismatch". This
+/** prd.md Section 12.1 - copy must be blunt, not reassuring, especially for "mismatch". This
  * is the exact wording from that section, not a paraphrase. */
 function verdictCopy(status: string, anchoredAt?: string, expectedAnchorMinutes?: number): string {
   switch (status) {
     case "verified":
-      return `Recorded on chain at ${anchoredAt ?? "—"}. The details below have not changed since.`;
+      return `Recorded on chain at ${anchoredAt ?? "an unknown time"}. The details below have not changed since.`;
     case "pending":
       return `Recorded, anchoring within ${expectedAnchorMinutes ?? 15} minutes. Check back shortly.`;
     case "mismatch":

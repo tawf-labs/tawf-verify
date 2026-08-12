@@ -10,7 +10,7 @@ export interface RecordCliResult {
 /**
  * STUB: parses a minimal CSV (recordId,amountValue,currency,occurredAt) and records each row
  * against an in-memory @tawf/verify-server instance that exists only for this process
- * invocation — nothing persists between CLI runs. A real implementation persists the outbox
+ * invocation - nothing persists between CLI runs. A real implementation persists the outbox
  * (see @tawf/verify-server's README) and talks to a real or hosted relayer.
  */
 export async function runRecord(args: {

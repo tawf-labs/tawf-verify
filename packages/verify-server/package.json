@@ -1,7 +1,7 @@
 {
   "name": "@tawf/verify-server",
   "version": "0.1.0",
-  "description": "Node/Bun server SDK: record buffering, batch scheduling, anchor submission. Stub — see README for what's mocked.",
+  "description": "Node/Bun server SDK: record buffering, batch scheduling, anchor submission. Stub - see README for what's mocked.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

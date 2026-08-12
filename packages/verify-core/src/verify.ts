@@ -8,14 +8,14 @@ import type { ChainReader, ProofBundle, VerifyResult } from "./types.js";
  * prd.md Appendix B: "Trusting the supplied leaf rather than recomputing it from the record
  * turns the whole verifier into theatre, because an attacker could then present any record
  * they liked alongside a genuine leaf." Every field of `bundle.leaf` is recomputed from
- * `bundle.record` here — nothing about the leaf is ever taken on faith except
+ * `bundle.record` here - nothing about the leaf is ever taken on faith except
  * `bundle.recordIdHash`, which a public verifier structurally cannot re-derive without the
  * operator's org salt (see the note on ProofBundle.recordIdHash in types.ts).
  *
  * Resolves the tension between Section 6.1 ("verify-core... zero network calls, zero chain
  * dependency") and Appendix B step 3 (which needs a chain read to confirm the root was
  * actually published): steps 1-2 below are pure and dependency-free. Step 3 only runs if the
- * caller supplies a `chainReader` — verify-core itself never instantiates one. Callers that
+ * caller supplies a `chainReader` - verify-core itself never instantiates one. Callers that
  * want online confirmation (verify-server, the CLI's `check` command) build a real
  * viem-backed reader from an rpcUrl; an auditor working offline can build one backed by a
  * cached block header instead (Section 15).

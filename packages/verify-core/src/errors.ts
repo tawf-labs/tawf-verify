@@ -16,7 +16,7 @@ export class InvalidRecordError extends Error {
   }
 }
 
-/** buildMerkleTree() refuses an empty leaf set — a zero-record batch is not a meaningful anchor. */
+/** buildMerkleTree() refuses an empty leaf set - a zero-record batch is not a meaningful anchor. */
 export class EmptyBatchError extends Error {
   constructor() {
     super("EmptyBatchError: cannot build a Merkle tree over zero leaves");

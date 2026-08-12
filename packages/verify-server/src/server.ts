@@ -15,7 +15,7 @@ import type {
   TawfVerifyConfig,
 } from "./types.js";
 
-/** prd.md Section 11.1's `counterpartyRef = sha256(orgSalt || donorInternalId)` — note this is
+/** prd.md Section 11.1's `counterpartyRef = sha256(orgSalt || donorInternalId)` - note this is
  * SHA-256, deliberately a different hash function from the keccak256 used everywhere else in
  * the leaf/Merkle path, so counterpartyRef can never be confused with an on-chain-hashable
  * value even by accident. */
@@ -27,7 +27,7 @@ function hashCounterparty(orgSalt: string, donorInternalId: string): string {
 function toCanonicalRecord(orgId: string, input: RecordInput, orgSalt: string): CanonicalRecord {
   const occurredAt =
     input.occurredAt instanceof Date ? input.occurredAt.toISOString() : input.occurredAt;
-  // Optional fields must be OMITTED, not set to `key: undefined` — canonicalize.ts's JCS
+  // Optional fields must be OMITTED, not set to `key: undefined` - canonicalize.ts's JCS
   // implementation has no representation for a present key with an undefined value and
   // rejects it outright (by design: JSON.stringify would otherwise silently drop it, which is
   // exactly the kind of silent divergence Section 8.3 treats as a release blocker).
@@ -67,7 +67,7 @@ export class TawfVerify {
 
   /** Idempotent: calling record() twice with the same recordId returns the existing leaf
    * rather than creating a duplicate (prd.md Section 15). Never throws on relayer
-   * unavailability — this mock has no relayer to be unavailable, but a real implementation
+   * unavailability - this mock has no relayer to be unavailable, but a real implementation
    * must preserve this: recording writes to the outbox and returns success even if the batch
    * scheduler is unreachable. */
   async record(input: RecordInput): Promise<RecordResult> {
@@ -93,7 +93,7 @@ export class TawfVerify {
 
   /** Forces an anchor now over every currently-pending record for this org. prd.md Section
    * 7.3 frames the single-record version of this (`anchorNow`) as "an expensive escape
-   * hatch, not a default" — the cost model doesn't change here since this stub doesn't
+   * hatch, not a default" - the cost model doesn't change here since this stub doesn't
    * charge gas, but the shape matches so a real anchorClient slots in without an API change. */
   async flushBatch(): Promise<BatchResult> {
     const pending = this.outbox.pending();
@@ -181,7 +181,7 @@ export class TawfVerify {
 
   /** Opaque short link, per prd.md Section 12.1 (`https://verify.tawf.app/r/8Kq2nT`). A real
    * implementation looks this slug up against a lookup table rather than deriving it from
-   * recordId directly — deriving it would make recordIds guessable/enumerable from the public
+   * recordId directly - deriving it would make recordIds guessable/enumerable from the public
    * URL, which is exactly the kind of leak Section 9's privacy model exists to prevent. This
    * stub returns a plain (non-opaque) URL for local development only. */
   verifyUrl(recordId: string): string {

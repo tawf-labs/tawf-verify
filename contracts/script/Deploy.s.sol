@@ -5,7 +5,7 @@ import {Script, console} from "forge-std/Script.sol";
 import {TawfVerifyRegistry} from "../src/TawfVerifyRegistry.sol";
 
 /// @notice Deploys TawfVerifyRegistry. No constructor args: authority is bootstrapped per-org
-/// after deployment via registerOrg/setSigner, never at deploy time (prd.md Section 10.3 —
+/// after deployment via registerOrg/setSigner, never at deploy time (prd.md Section 10.3 -
 /// there is deliberately no global owner for this deployment script to hand off to).
 contract Deploy is Script {
     function run() external returns (TawfVerifyRegistry registry) {

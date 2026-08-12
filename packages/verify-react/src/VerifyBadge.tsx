@@ -1,7 +1,7 @@
 import { useVerify } from "./useVerify.js";
 import type { UseVerifyOptions } from "./types.js";
 
-/** prd.md Section 12.1 — the copy per verdict must stay blunt, not reassuring. This badge is
+/** prd.md Section 12.1 - the copy per verdict must stay blunt, not reassuring. This badge is
  * deliberately terse (for a receipt page); `<VerifyPanel/>` is the full version. */
 const LABELS: Record<string, string> = {
   loading: "Checking…",

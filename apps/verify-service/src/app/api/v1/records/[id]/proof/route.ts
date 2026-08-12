@@ -10,7 +10,7 @@ export async function GET(
   } catch (err) {
     // Compare by `.name` rather than `instanceof`: Next.js bundles this route and
     // @/lib/tawf's transitive import of @tawf/verify-server as separate webpack chunks,
-    // which can load two distinct module instances of the same package — instanceof would
+    // which can load two distinct module instances of the same package - instanceof would
     // then fail even though the error is exactly the one we're checking for.
     const name = err instanceof Error ? err.name : undefined;
     if (name === "NotAnchoredYetError") {

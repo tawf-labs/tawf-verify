@@ -1,7 +1,7 @@
 import { createPublicClient, http } from "viem";
 import type { ChainReader, Hex, OnChainBatch } from "@tawf/verify-core";
 
-/** ABI fragment for the one view function verify-server needs — see contracts/src/TawfVerifyRegistry.sol. */
+/** ABI fragment for the one view function verify-server needs - see contracts/src/TawfVerifyRegistry.sol. */
 const BATCHES_ABI = [
   {
     type: "function",

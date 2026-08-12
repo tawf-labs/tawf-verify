@@ -11,7 +11,7 @@ import type { CanonicalRecord, Hex } from "../src/types.js";
 
 /**
  * prd.md Section 15: "the test vector suite is a release blocker rather than a nice-to-have."
- * These vectors are frozen fixtures — a change to canonicalize.ts/hash.ts/merkle.ts that
+ * These vectors are frozen fixtures - a change to canonicalize.ts/hash.ts/merkle.ts that
  * breaks any of these is a determinism-breaking change, full stop. Do not edit a vector to
  * make a code change pass; that's exactly the failure mode this suite exists to catch.
  */

@@ -5,7 +5,7 @@ import type { UseVerifyOptions, VerifyUIResult } from "./types.js";
  * STUB: returns a canned fixture instead of hitting a live verify-service deployment. A real
  * implementation calls `POST /v1/verify` or `GET /v1/records/:id/proof` (prd.md Section 11.2)
  * against `apiBaseUrl`, runs `@tawf/verify-core`'s `verifyProof` client-side (never trust a
- * server-reported verdict without recomputing it — the same rule as Appendix B), and maps the
+ * server-reported verdict without recomputing it - the same rule as Appendix B), and maps the
  * result to a VerifyUIResult. Swap this function out; nothing else in this package needs to
  * change, since useVerify only depends on the `fetcher` shape.
  */

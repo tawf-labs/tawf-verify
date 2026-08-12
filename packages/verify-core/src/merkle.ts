@@ -2,7 +2,7 @@ import { concat, keccak256 } from "viem";
 import { EmptyBatchError } from "./errors.js";
 import type { Hex, MerkleTree, ProofStep } from "./types.js";
 
-/** Domain-separation prefixes — prd.md Section 8.5: "closes second-preimage attacks where an
+/** Domain-separation prefixes - prd.md Section 8.5: "closes second-preimage attacks where an
  * internal node is replayed as a leaf." */
 const LEAF_PREFIX: Hex = "0x00";
 const NODE_PREFIX: Hex = "0x01";
@@ -14,7 +14,7 @@ export function hashLeafNode(recordHash: Hex): Hex {
 
 /**
  * Combines two nodes with sorted-pair ordering (`hash(min(a,b) || max(a,b))`), per
- * prd.md Section 8.5 — this is what removes the need for a left/right direction bit in a
+ * prd.md Section 8.5 - this is what removes the need for a left/right direction bit in a
  * proof: the combination is commutative, so a verifier only ever needs the sibling value,
  * never its position.
  */
@@ -25,7 +25,7 @@ export function hashPairNode(a: Hex, b: Hex): Hex {
 
 /**
  * Binary Merkle tree over pre-hashed record hashes. An odd node at any level is promoted
- * unchanged to the next level rather than paired with itself — self-pairing (duplicating the
+ * unchanged to the next level rather than paired with itself - self-pairing (duplicating the
  * last leaf) is the classic Merkle forgery bug this design deliberately avoids.
  */
 export function buildMerkleTree(recordHashes: Hex[]): MerkleTree {
@@ -50,7 +50,7 @@ export function buildMerkleTree(recordHashes: Hex[]): MerkleTree {
 
 /**
  * Builds the inclusion proof for the leaf at `leafIndex`. A level where that node was
- * promoted unchanged (no sibling) contributes no proof step — verifyProof's walk simply
+ * promoted unchanged (no sibling) contributes no proof step - verifyProof's walk simply
  * leaves the running hash unchanged for that level too, which is what makes the two
  * procedures agree without needing to encode "promoted" explicitly (see prd.md Appendix B).
  */

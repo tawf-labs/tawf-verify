@@ -3,7 +3,7 @@ import type { OutboxEntry } from "./types.js";
 /**
  * In-memory outbox: lost on process restart. prd.md Section 15's "Availability" requirement
  * ("if the SDK cannot reach the relayer, it writes to a local outbox and returns success")
- * still needs a durable store behind this same interface in production — swap this class for
+ * still needs a durable store behind this same interface in production - swap this class for
  * one backed by Postgres/SQLite/whatever without touching server.ts.
  */
 export class InMemoryOutbox {

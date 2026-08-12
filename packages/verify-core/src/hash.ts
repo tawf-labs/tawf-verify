@@ -19,7 +19,7 @@ export function hashOrgId(orgId: string): Hex {
 
 /**
  * `recordIdHash = keccak256(orgSalt || recordId)`. The org salt never leaves the operator's
- * environment (prd.md Section 8.2) — callers must supply it, verify-core never generates or
+ * environment (prd.md Section 8.2) - callers must supply it, verify-core never generates or
  * stores it.
  */
 export function hashRecordId(orgSalt: Hex, recordId: string): Hex {
@@ -28,7 +28,7 @@ export function hashRecordId(orgSalt: Hex, recordId: string): Hex {
 
 /**
  * `payloadHash = keccak256(JCS(record))`. Runs the mandatory PII rejection gate first
- * (prd.md Section 8.2) — silent acceptance would leak PII into a permanent public
+ * (prd.md Section 8.2) - silent acceptance would leak PII into a permanent public
  * commitment, which is unrecoverable, so this must not be skippable by callers.
  */
 export function hashPayload(record: CanonicalRecord): Hex {
@@ -47,7 +47,7 @@ export function toUnixSeconds(occurredAt: string): number {
 
 /**
  * `leaf = keccak256(abi.encode(SCHEMA_ID, orgIdHash, recordIdHash, payloadHash, occurredAt))`
- * — prd.md Section 8.4. `abi.encode`, never `abi.encodePacked`: packed encoding of
+ * - prd.md Section 8.4. `abi.encode`, never `abi.encodePacked`: packed encoding of
  * variable-length fields is a known collision surface, and every field here is fixed-width
  * anyway, so there is no reason to take the risk.
  */
@@ -82,7 +82,7 @@ export function deriveLeafInputs(record: CanonicalRecord, orgSalt: Hex): LeafInp
   };
 }
 
-/** Recomputes a record's leaf hash end to end. This is the function a verifier must call —
+/** Recomputes a record's leaf hash end to end. This is the function a verifier must call -
  * never trust a supplied leaf, always recompute it (prd.md Appendix B). */
 export function recomputeRecordHash(record: CanonicalRecord, orgSalt: Hex): Hex {
   return computeLeafRecordHash(deriveLeafInputs(record, orgSalt));

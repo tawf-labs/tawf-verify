@@ -3,7 +3,7 @@
 **A notary, not a custodian.**
 
 `tawf-verify` lets a ZISWAF operator (BAZNAS, LAZ, yayasan, masjid) keep collecting donations
-the ordinary way — QRIS, bank transfer, virtual account, e-wallet, IDRX — while making every
+the ordinary way - QRIS, bank transfer, virtual account, e-wallet, IDRX - while making every
 resulting transaction record independently verifiable on a public blockchain.
 
 The operator's database stays the source of truth for the money. The chain stores only a
@@ -12,8 +12,8 @@ donor funds ever move on chain, and no personal data or unblinded amount reaches
 default. A donor with nothing but a receipt can prove two things without trusting the
 operator or Tawf Labs:
 
-1. **Existence** — this record existed at or before block N, timestamp T.
-2. **Integrity** — the amount, date, campaign, and recipient are byte-for-byte what was
+1. **Existence** - this record existed at or before block N, timestamp T.
+2. **Integrity** - the amount, date, campaign, and recipient are byte-for-byte what was
    recorded then.
 
 Full spec: [`prd.md`](./prd.md).
@@ -22,28 +22,64 @@ Full spec: [`prd.md`](./prd.md).
 
 The reference product this design was torn down against (`poc.bhremada.com`) mints a real
 ERC-20 token per order through a custodian vault contract that mints, burns, and transfers
-value — a contract bug there can drain funds. `tawf-verify` inverts that on every axis that
+value - a contract bug there can drain funds. `tawf-verify` inverts that on every axis that
 matters for a regulated charity flow: the registry contract holds no funds, has no
 `payable`/`receive`, and its only state-changing entrypoint is an append-only
 `anchorBatch()`. A contract bug here can at worst stop new anchors; it can never touch a
 rupiah. See `prd.md` Section 2 for the full teardown.
 
+## How anchoring and verification work
+
+```mermaid
+flowchart TD
+    A["Donor pays via QRIS<br/>(or VA / e-wallet / IDRX)"] --> B["Operator backend confirms payment<br/>(unchanged, source of truth)"]
+    B -->|"tawf.record(...), one line added"| C[Local outbox]
+    C -->|"every N records or T minutes"| D["Merkle tree built over pending leaves"]
+    D -->|"anchorBatch(root, count, uri)<br/>signed EIP-712"| E[["TawfVerifyRegistry<br/>on Base L2"]]
+    E -->|"event BatchAnchored"| F["Proof bundle written back<br/>to each record"]
+    F --> G["Receipt shows verify link + QR"]
+    G -->|"donor scans"| H["verify.tawf.app"]
+    H -->|"1. recompute leaf from record<br/>2. walk Merkle path<br/>3. read registry.batches(batchId)"| E
+```
+
+Steps 1 and 2 above run entirely offline, in `@tawf/verify-core`, with no chain dependency.
+Step 3 is the only network call, and it is a free, unauthenticated `eth_call`, see
+[`prd.md`](./prd.md) Section 7.1 and Appendix B for the full spec this diagram mirrors.
+
 ## Repository layout
 
 ```
-contracts/            TawfVerifyRegistry.sol — Foundry project, no funds, append-only
+contracts/            TawfVerifyRegistry.sol - Foundry project, no funds, append-only
 packages/
-  verify-core/         @tawf/verify-core   — canonicalization, Merkle tree, proof verify (real, Apache-2.0)
-  verify-server/       @tawf/verify-server — record buffering, batch scheduling, anchor submission (stub)
-  verify-react/        @tawf/verify-react  — VerifyBadge / VerifyPanel / TransparencyBoard (stub)
-  cli/                 @tawf/verify-cli, bin `tawf-verify` — `check` is real, rest are stubs
+  verify-core/         @tawf/verify-core   - canonicalization, Merkle tree, proof verify (real, Apache-2.0)
+  verify-server/       @tawf/verify-server - record buffering, batch scheduling, anchor submission (stub)
+  verify-react/        @tawf/verify-react  - VerifyBadge / VerifyPanel / TransparencyBoard (stub)
+  cli/                 @tawf/verify-cli, bin `tawf-verify` - `check` is real, rest are stubs
 apps/
   verify-service/      hosted relayer + public verify page (stub, Next.js)
 ```
 
+```mermaid
+flowchart LR
+    core[["@tawf/verify-core<br/>(real, Apache-2.0,<br/>zero chain dependency)"]]
+    server["@tawf/verify-server<br/>(stub, real Merkle batching,<br/>mocked chain submission)"]
+    react["@tawf/verify-react<br/>(stub, real components,<br/>canned data fetch)"]
+    cli["@tawf/verify-cli<br/>(check is real end-to-end)"]
+    app["apps/verify-service<br/>(stub, Next.js)"]
+    contract[("TawfVerifyRegistry.sol<br/>(real, Foundry,<br/>same hashing rule as core)")]
+
+    core --> server
+    core --> react
+    core --> cli
+    server --> cli
+    server --> app
+    react --> app
+    core -.->|"byte-for-byte parity<br/>see contracts/test/*.t.sol"| contract
+```
+
 **Status.** Early-stage / active development, matching Phase 0 of `prd.md` Section 13:
 `@tawf/verify-core` and `TawfVerifyRegistry.sol` are real and tested. Everything else is a
-structured stub — correct interfaces, mocked internals — until Phase 1/2/3 fund them out.
+structured stub - correct interfaces, mocked internals - until Phase 1/2/3 fund them out.
 Do not use in production without review.
 
 ## Quickstart
@@ -52,7 +88,7 @@ Do not use in production without review.
 pnpm install
 pnpm build
 pnpm test        # includes @tawf/verify-core's golden vector suite
-pnpm sanity       # scripts/sanity-check.ts — build a tree, prove it, verify it, corrupt it
+pnpm sanity       # scripts/sanity-check.ts - build a tree, prove it, verify it, corrupt it
 ```
 
 ```bash
@@ -64,7 +100,7 @@ forge test -vvv
 ## The one invariant that matters most
 
 `@tawf/verify-core` must produce a byte-identical leaf hash for identical input on every
-platform, forever — this is what lets a proof outlive Tawf Labs (goal G3 in `prd.md`). See
+platform, forever - this is what lets a proof outlive Tawf Labs (goal G3 in `prd.md`). See
 [`CONTRIBUTING.md`](./CONTRIBUTING.md) before touching `canonicalize.ts`, `hash.ts`, or
 `merkle.ts`.
 

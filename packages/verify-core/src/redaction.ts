@@ -3,7 +3,7 @@ import { canonicalize } from "./canonicalize.js";
 import type { FieldCommitment, Hex, JSONValue } from "./types.js";
 
 /**
- * prd.md Section 9 — selective disclosure without ZK circuits: `redacted` mode replaces a
+ * prd.md Section 9 - selective disclosure without ZK circuits: `redacted` mode replaces a
  * field's value with its own salted commitment and withholds the salt. Revealing the field
  * later just means revealing that field's salt.
  *

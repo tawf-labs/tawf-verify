@@ -1,6 +1,6 @@
 /**
  * Regenerates the golden vectors under test/vectors/. Run this only when bumping
- * schema.v1 -> v2 (a schemaId change) — regenerating vectors for an existing schema version
+ * schema.v1 -> v2 (a schemaId change) - regenerating vectors for an existing schema version
  * defeats their entire purpose as a determinism regression fixture. See CONTRIBUTING.md.
  *
  * Usage: npx tsx scripts/generate-vectors.ts
@@ -57,7 +57,7 @@ try {
   prepareLeaves([rec("TRX-PII", "100000", { meta: { phone: "081234567890" } })], SALT);
   console.log("\n=== pii-rejection: DID NOT THROW (bug!) ===");
 } catch (e) {
-  console.log(`\n=== pii-rejection: threw ${(e as Error).name} — ${(e as Error).message} ===`);
+  console.log(`\n=== pii-rejection: threw ${(e as Error).name} - ${(e as Error).message} ===`);
 }
 
 const FIELD_SALT: Hex = ("0x" + "7b".repeat(32)) as Hex;

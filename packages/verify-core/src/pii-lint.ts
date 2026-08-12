@@ -47,7 +47,7 @@ function looksLikePII(value: string): boolean {
 }
 
 function isAllowedKey(key: string): boolean {
-  // counterpartyRef and attachment sha256 fields are pre-hashed by design (Section 8.2) —
+  // counterpartyRef and attachment sha256 fields are pre-hashed by design (Section 8.2) -
   // they are hex/base64 digests, not raw identity, so exempt them from the denylist even
   // though their names might loosely resemble something sensitive.
   return key === "counterpartyRef" || key === "sha256";
@@ -55,7 +55,7 @@ function isAllowedKey(key: string): boolean {
 
 function walk(value: JSONValue | undefined, path: string, hits: Set<string>): void {
   // An omitted optional field (`instrument?: string`, never assigned) surfaces here as
-  // `undefined` when we recurse into it via Object.entries — that's not PII, it's absence.
+  // `undefined` when we recurse into it via Object.entries - that's not PII, it's absence.
   // canonicalize.ts is the stricter of the two: it rejects a *present* key whose value is
   // undefined outright, since JCS has no representation for that. Here we just skip it.
   if (

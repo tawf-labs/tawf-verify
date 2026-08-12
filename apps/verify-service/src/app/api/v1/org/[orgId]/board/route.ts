@@ -2,7 +2,7 @@ import type { TransparencyBoardData } from "@tawf/verify-react";
 
 /**
  * STUB: canned shape matching prd.md Section 12.2. Public and unauthenticated, same as
- * /api/v1/verify — the transparency board is meant to be checkable by anyone, not just the
+ * /api/v1/verify - the transparency board is meant to be checkable by anyone, not just the
  * operator's own donors.
  */
 export async function GET(

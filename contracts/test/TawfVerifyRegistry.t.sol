@@ -184,7 +184,7 @@ contract TawfVerifyRegistryTest is Test {
     /// @notice Cross-language parity: this is the single leaf golden vector from
     /// packages/verify-core/test/vectors/single-leaf.json. If merkle.ts and this contract's
     /// verify() ever disagree on domain separation or sorted-pair ordering, this test catches
-    /// it — that disagreement is the highest-risk failure mode in the whole system.
+    /// it - that disagreement is the highest-risk failure mode in the whole system.
     function test_VerifyAcceptsValidProofAndRejectsCorruptedProof() public {
         _registerAndAuthorize();
         bytes32 leaf = 0x6afdb5cf8ac4039f729b48020ad1e603fb0507f1bd3c820c36ae320099d8bfcd;
