@@ -1,0 +1,18 @@
+node_modules/
+dist/
+build/
+.next/
+coverage/
+*.tsbuildinfo
+.turbo/
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.log
+
+# Foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/*/*/run-*.json
+!contracts/broadcast/*/*/run-latest.json

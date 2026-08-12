@@ -1,0 +1,67 @@
+{
+  "description": "3 records: exercises odd-node-promotion at the first level (3 leaves -> level of size 2: one real pair, one promoted node).",
+  "orgSalt": "0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a",
+  "records": [
+    {
+      "schema": "tawf.verify.record.v1",
+      "type": "donation",
+      "orgId": "laz-almustaqim",
+      "recordId": "TRX-1",
+      "occurredAt": "2026-08-12T04:31:07Z",
+      "amount": { "value": "100000", "currency": "IDR", "scale": 2 },
+      "instrument": "zakat_mal",
+      "channel": "qris",
+      "campaignId": "ramadan-2026-yatim"
+    },
+    {
+      "schema": "tawf.verify.record.v1",
+      "type": "donation",
+      "orgId": "laz-almustaqim",
+      "recordId": "TRX-2",
+      "occurredAt": "2026-08-12T04:31:07Z",
+      "amount": { "value": "200000", "currency": "IDR", "scale": 2 },
+      "instrument": "zakat_mal",
+      "channel": "qris",
+      "campaignId": "ramadan-2026-yatim"
+    },
+    {
+      "schema": "tawf.verify.record.v1",
+      "type": "donation",
+      "orgId": "laz-almustaqim",
+      "recordId": "TRX-3",
+      "occurredAt": "2026-08-12T04:31:07Z",
+      "amount": { "value": "300000", "currency": "IDR", "scale": 2 },
+      "instrument": "zakat_mal",
+      "channel": "qris",
+      "campaignId": "ramadan-2026-yatim"
+    }
+  ],
+  "expected": {
+    "recordHashes": [
+      "0x16d06868a075848ce6a2dea44a71dfb074fada582700844720c1ee1f697a9faa",
+      "0xcdbc1d22f0c8ebfc3b3afedce1644731f23c954ea6574ecc2b24ff1ce3dfc09c",
+      "0xd8adfadc0a4ac869a3bf473652070ae88c07d9618870ee14623bffe388c5336b"
+    ],
+    "root": "0xfe15873ff505a57e1337fa2368f725feecd3f6654243aefa1d1ab6501a62bafa",
+    "proofs": [
+      {
+        "leafIndex": 0,
+        "path": [
+          "0x6ced0d1441d9af8277b162e83bb248ac0a700c5dca3eb91459071dfb7192ed0f",
+          "0x10d8da071f352c9394aa19d7c073d783cc8f4a2faa805d0dd92c0442eb7ec8b8"
+        ]
+      },
+      {
+        "leafIndex": 1,
+        "path": [
+          "0xf16202eb50ade53e28cfee97810d2d75ce0c2d1c83f4a30467300924207973ea",
+          "0x10d8da071f352c9394aa19d7c073d783cc8f4a2faa805d0dd92c0442eb7ec8b8"
+        ]
+      },
+      {
+        "leafIndex": 2,
+        "path": ["0x664b6bcc104b76752d03e187c0411f97eed2aa5b4b2e9be85af73aa66db67d3c"]
+      }
+    ]
+  }
+}

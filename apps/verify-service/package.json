@@ -1,0 +1,29 @@
+{
+  "name": "@tawf/verify-service",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hosted anchoring relayer + public verify page (prd.md Section 6.5 / 12). Stub — see README.",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf .next .turbo"
+  },
+  "dependencies": {
+    "@tawf/verify-core": "workspace:*",
+    "@tawf/verify-react": "workspace:*",
+    "@tawf/verify-server": "workspace:*",
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.8.0"
+  },
+  "license": "Apache-2.0"
+}

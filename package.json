@@ -1,0 +1,62 @@
+{
+  "name": "tawf-verify",
+  "version": "0.1.0",
+  "description": "Cryptographic notarization for ZISWAF transaction records: batch-anchor off-chain records to a public L2, verify them without trusting the operator.",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "typecheck": "turbo run typecheck",
+    "build:contracts": "cd contracts && forge build",
+    "test:contracts": "cd contracts && forge test -vvv",
+    "sanity": "tsx scripts/sanity-check.ts",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@tawf/verify-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.0",
+    "tsx": "^4.7.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.8.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "keywords": [
+    "ziswaf",
+    "zakat",
+    "merkle-tree",
+    "notarization",
+    "blockchain",
+    "islamic-finance",
+    "audit",
+    "transparency"
+  ],
+  "author": "Tawf Labs",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tawf-labs/tawf-verify"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "description": "Same two records ordered [A,B]: the highest-value regression test in the suite is that this root is bit-for-bit identical to building the tree as [B,A] (see the paired test below and merkle.test.ts), proving hashPairNode's min/max commutativity claim actually holds and not just in theory.",
+  "orgSalt": "0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a",
+  "records": [
+    {
+      "schema": "tawf.verify.record.v1",
+      "type": "donation",
+      "orgId": "laz-almustaqim",
+      "recordId": "TRX-A",
+      "occurredAt": "2026-08-12T04:31:07Z",
+      "amount": { "value": "100000", "currency": "IDR", "scale": 2 },
+      "instrument": "zakat_mal",
+      "channel": "qris",
+      "campaignId": "ramadan-2026-yatim"
+    },
+    {
+      "schema": "tawf.verify.record.v1",
+      "type": "donation",
+      "orgId": "laz-almustaqim",
+      "recordId": "TRX-B",
+      "occurredAt": "2026-08-12T04:31:07Z",
+      "amount": { "value": "200000", "currency": "IDR", "scale": 2 },
+      "instrument": "zakat_mal",
+      "channel": "qris",
+      "campaignId": "ramadan-2026-yatim"
+    }
+  ],
+  "expected": {
+    "recordHashes": [
+      "0x978a1e4862d708104ad8b860f08579d2606676c57a7c1fc2cfca9259e2ddef54",
+      "0xe1a608b0a12dd6f73175b9913b6bbaa60add513f252d9c76a08f3fce8e6ba7d0"
+    ],
+    "root": "0x27773385169415fc2a93fb186301abba459406803a1480622c5aadbbea497b42",
+    "proofs": [
+      {
+        "leafIndex": 0,
+        "path": ["0x9367c473741f45958ac55bb1763a3d8d288b0f347b66fddce237e37b8e2c821e"]
+      },
+      {
+        "leafIndex": 1,
+        "path": ["0x8e1b70604f5f6fdae83472d819d7479973f7b5b5e22cfd53fd9d85dbf31cd6db"]
+      }
+    ]
+  },
+  "reversedOrderRootForCrossCheck": "0x27773385169415fc2a93fb186301abba459406803a1480622c5aadbbea497b42"
+}

@@ -1,0 +1,22 @@
+{
+  "description": "1 record: root equals the leaf hash, empty proof path (no pairing branch).",
+  "orgSalt": "0x5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a",
+  "records": [
+    {
+      "schema": "tawf.verify.record.v1",
+      "type": "donation",
+      "orgId": "laz-almustaqim",
+      "recordId": "TRX-2026-08-000184213",
+      "occurredAt": "2026-08-12T04:31:07Z",
+      "amount": { "value": "500000", "currency": "IDR", "scale": 2 },
+      "instrument": "zakat_mal",
+      "channel": "qris",
+      "campaignId": "ramadan-2026-yatim"
+    }
+  ],
+  "expected": {
+    "recordHashes": ["0x6afdb5cf8ac4039f729b48020ad1e603fb0507f1bd3c820c36ae320099d8bfcd"],
+    "root": "0xd49db86cf29e94c4a5f33b9a42160e42edcf26060c3dbf595f0be445f5bc956b",
+    "proofs": [{ "leafIndex": 0, "path": [] }]
+  }
+}
