@@ -11,6 +11,9 @@ importers:
       '@tawf/verify-core':
         specifier: workspace:*
         version: link:packages/verify-core
+      viem:
+        specifier: ^2.21.0
+        version: 2.55.13(typescript@5.9.3)
     devDependencies:
       '@types/node':
         specifier: ^20.11.0

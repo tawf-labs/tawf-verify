@@ -19,10 +19,12 @@
     "build:contracts": "cd contracts && forge build",
     "test:contracts": "cd contracts && forge test -vvv",
     "sanity": "tsx scripts/sanity-check.ts",
+    "demo:e2e": "bash scripts/e2e-demo.sh",
     "prepare": "husky install"
   },
   "dependencies": {
-    "@tawf/verify-core": "workspace:*"
+    "@tawf/verify-core": "workspace:*",
+    "viem": "^2.21.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

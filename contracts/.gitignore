@@ -1,5 +1,8 @@
 out/
 cache/
+# Chain ID 31337 is anvil's default local devnet - ephemeral by construction (a fresh
+# deployment every time scripts/e2e-demo.sh runs), never a real network, never worth tracking.
+broadcast/*/31337/
 broadcast/*/*/run-*.json
 !broadcast/*/*/run-latest.json
 .env

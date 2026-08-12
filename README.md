@@ -97,6 +97,21 @@ forge install
 forge test -vvv
 ```
 
+## End-to-end demo (real chain, nothing mocked)
+
+```bash
+pnpm demo:e2e
+```
+
+[`scripts/e2e-demo.sh`](./scripts/e2e-demo.sh) starts a local `anvil` chain, deploys
+`TawfVerifyRegistry.sol` to it with a real broadcast transaction, registers an org and
+authorizes a signer, builds a real 3-record Merkle batch with `@tawf/verify-core`, anchors it
+with a real `anchorBatch()` transaction, then runs the actual `tawf-verify check` CLI against
+that live chain over its RPC endpoint. It prints `VERIFIED - anchored on chain at <real
+timestamp>` for the genuine proof and correctly rejects a tampered copy. Every step is a real
+transaction or a real `eth_call` against real (locally deployed) bytecode - there is no mock
+anywhere in this path, unlike the rest of the stub packages described below.
+
 ## The one invariant that matters most
 
 `@tawf/verify-core` must produce a byte-identical leaf hash for identical input on every

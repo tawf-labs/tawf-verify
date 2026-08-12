@@ -47,12 +47,18 @@ describe("hash", () => {
 
   it("hashPayload is stable under key-order permutation (canonicalization)", () => {
     const a = hashPayload(RECORD);
-    const permuted = { ...RECORD };
-    // rebuild the object with keys inserted in a different order
+    // Same values, keys inserted in reverse order - canonicalize.ts's key sorting must make
+    // this hash identically to `a` regardless.
     const b = hashPayload({
+      campaignId: RECORD.campaignId,
+      channel: RECORD.channel,
+      instrument: RECORD.instrument,
+      amount: RECORD.amount,
       occurredAt: RECORD.occurredAt,
+      recordId: RECORD.recordId,
+      orgId: RECORD.orgId,
+      type: RECORD.type,
       schema: RECORD.schema,
-      ...permuted,
     });
     expect(a).toBe(b);
   });
