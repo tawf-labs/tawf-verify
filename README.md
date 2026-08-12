@@ -57,6 +57,7 @@ packages/
   cli/                 @tawf/verify-cli, bin `tawf-verify` - `check` is real, rest are stubs
 apps/
   verify-service/      hosted relayer + public verify page (stub, Next.js)
+  landing/             marketing page, Tawf Islamic Foundation design system (Vite + React)
 ```
 
 ```mermaid
@@ -66,6 +67,7 @@ flowchart LR
     react["@tawf/verify-react<br/>(stub, real components,<br/>canned data fetch)"]
     cli["@tawf/verify-cli<br/>(check is real end-to-end)"]
     app["apps/verify-service<br/>(stub, Next.js)"]
+    landing["apps/landing<br/>(marketing page, Vite)"]
     contract[("TawfVerifyRegistry.sol<br/>(real, Foundry,<br/>same hashing rule as core)")]
 
     core --> server
@@ -76,6 +78,11 @@ flowchart LR
     react --> app
     core -.->|"byte-for-byte parity<br/>see contracts/test/*.t.sol"| contract
 ```
+
+`apps/landing` has no dependency on `@tawf/verify-core` or any other package here; it is
+content-only, sourced from `prd.md`, styled to match
+[`tawf-foundation`](https://tawf.foundation)'s design system exactly (see that app's own
+README for the token provenance).
 
 **Status.** Early-stage / active development, matching Phase 0 of `prd.md` Section 13:
 `@tawf/verify-core` and `TawfVerifyRegistry.sol` are real and tested. Everything else is a
