@@ -16,3 +16,4 @@ contracts/out/
 contracts/cache/
 contracts/broadcast/*/*/run-*.json
 !contracts/broadcast/*/*/run-latest.json
+.vercel
