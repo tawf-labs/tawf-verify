@@ -1,5 +1,7 @@
 # tawf-verify
 
+> **Note:** The SDK packages (`@tawf/verify-core`, `@tawf/verify-server`, `@tawf/verify-react`, `@tawf/verify-cli`) have moved to [tawf-sdk](https://github.com/tawf-labs/tawf-sdk).
+
 **A notary, not a custodian.**
 
 `tawf-verify` lets a ZISWAF operator (BAZNAS, LAZ, yayasan, masjid) keep collecting donations

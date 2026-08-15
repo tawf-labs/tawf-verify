@@ -25,10 +25,5 @@
     "incremental": true
   },
   "exclude": ["node_modules", "dist", "build", "target", ".next", "contracts"],
-  "references": [
-    { "path": "./packages/verify-core" },
-    { "path": "./packages/verify-server" },
-    { "path": "./packages/verify-react" },
-    { "path": "./packages/cli" }
-  ]
+  "references": []
 }

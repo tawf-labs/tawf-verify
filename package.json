@@ -23,7 +23,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@tawf/verify-core": "workspace:*",
+    "@tawf/verify-core": "^0.1.0",
     "viem": "^2.21.0"
   },
   "devDependencies": {

@@ -13,9 +13,9 @@
     "clean": "rm -rf .next .turbo"
   },
   "dependencies": {
-    "@tawf/verify-core": "workspace:*",
-    "@tawf/verify-react": "workspace:*",
-    "@tawf/verify-server": "workspace:*",
+"@tawf/verify-core": "^0.1.0",
+"@tawf/verify-react": "^0.1.0",
+"@tawf/verify-server": "^0.1.0",
     "next": "^14.2.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
