@@ -145,7 +145,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </a>
               </li>
               <li>
-                <a href="https://tawf.xyz" target="_blank" rel="noopener noreferrer" className="hover:text-tawf-gold transition-colors">
+                <a href="https://tawflabs.com" target="_blank" rel="noopener noreferrer" className="hover:text-tawf-gold transition-colors">
                   Tawf Labs
                 </a>
               </li>
