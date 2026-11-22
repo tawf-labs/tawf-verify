@@ -27,7 +27,7 @@ export default function StatusSection() {
               <div className="h-full rounded-2xl border border-t-line bg-t-paper p-8 transition-transform duration-300 hover:-translate-y-1">
                 <div className="mb-5 flex items-center justify-between">
                   <div className="flex size-12 items-center justify-center rounded-2xl bg-t-mint text-t-accent">{it.icon}</div>
-                  <span className={`rounded-full px-3 py-1 text-xs font-semibold ${it.real ? "bg-t-accent text-white" : "bg-t-butter text-t-honey"}`}>
+                  <span className={`rounded-full px-3 py-1 text-xs font-semibold ${it.real ? "bg-t-accent text-white" : "bg-t-butter text-t-ink"}`}>
                     {it.real ? "Real" : "Stub"}
                   </span>
                 </div>

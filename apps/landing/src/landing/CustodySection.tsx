@@ -32,12 +32,12 @@ export default function CustodySection() {
             <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
               <CustodianVault className="mx-auto mb-6 w-full max-w-[300px]" />
               <div className="mb-6 flex items-center gap-4">
-                <div className="flex size-12 items-center justify-center rounded-full bg-white/10"><XCircle className="size-6 text-white/60" /></div>
+                <div className="flex size-12 items-center justify-center rounded-full bg-white/10"><XCircle className="size-6 text-white/80" /></div>
                 <h3 className="text-2xl text-white">Custodian Vault</h3>
               </div>
-              <ul className="m-0 list-none space-y-3 p-0 text-white/70">
+              <ul className="m-0 list-none space-y-3 p-0 text-white/80">
                 {BAD.map((t) => (
-                  <li key={t} className="flex items-start gap-3"><Minus className="mt-0.5 size-5 shrink-0 text-white/40" /><span>{t}</span></li>
+                  <li key={t} className="flex items-start gap-3"><Minus className="mt-0.5 size-5 shrink-0 text-white/80" /><span>{t}</span></li>
                 ))}
               </ul>
             </div>
@@ -57,7 +57,7 @@ export default function CustodySection() {
             </div>
           </StaggerItem>
         </Stagger>
-        <p className="mx-auto mt-12 max-w-2xl text-center text-lg text-white/70">
+        <p className="mx-auto mt-12 max-w-2xl text-center text-lg text-white/80">
           A contract bug here can at worst stop new anchors. It can never touch a rupiah.
         </p>
       </div>

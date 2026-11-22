@@ -99,7 +99,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      <footer className="bg-t-ink text-white/65 py-16 border-t border-white/10" role="contentinfo">
+      <footer className="bg-t-ink text-white/80 py-16 border-t border-white/10" role="contentinfo">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
             <img src="/images/tawftransparent.png" alt="Tawf" className="-ml-3 h-16 w-auto mb-2" />
