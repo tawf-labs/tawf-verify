@@ -18,7 +18,7 @@ export default function CtaSection() {
             Read prd.md <ArrowRight className="size-4" />
           </Btn>
         </div>
-        <p className="mt-8 text-sm text-white/70">Apache-2.0. Part of the Tawf ecosystem.</p>
+        <p className="mt-8 text-sm text-white/95">Apache-2.0. Part of the Tawf ecosystem.</p>
       </div>
     </section>
   );
